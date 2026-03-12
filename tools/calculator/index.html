@@ -10,64 +10,80 @@
 
 <body>
 
-    <!-- Back button -->
-    <div class="back-container">
-        <button class="back-btn" onclick="goBack()">← Back</button>
+<div class="back-container">
+    <button class="back-btn" onclick="goBack()">← Back</button>
+</div>
+
+<div class="calculator">
+    <h1>Scientific Calculator</h1>
+
+    <!-- Display -->
+    <input type="text" id="display" readonly>
+
+    <!-- Menu for settings -->
+    <div class="menu">
+        <label for="angle">Angle:</label>
+        <select id="angle">
+            <option value="deg">Degree</option>
+            <option value="rad">Radian</option>
+        </select>
+
+        <label for="theme">Theme:</label>
+        <select id="theme" onchange="changeTheme()">
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
+        </select>
     </div>
 
-    <!-- Calculator container -->
-    <div class="calculator">
+    <!-- Buttons -->
+    <div class="buttons">
+        <!-- Row 1 -->
+        <button onclick="clearDisplay()">C</button>
+        <button onclick="deleteLast()">DEL</button>
+        <button onclick="append('(')">(</button>
+        <button onclick="append(')')">)</button>
 
-        <h1>Scientific Calculator</h1>
+        <!-- Row 2 -->
+        <button onclick="append('7')">7</button>
+        <button onclick="append('8')">8</button>
+        <button onclick="append('9')">9</button>
+        <button onclick="append('/')">÷</button>
 
-        <!-- Display -->
-        <input type="text" id="display" readonly>
+        <!-- Row 3 -->
+        <button onclick="append('4')">4</button>
+        <button onclick="append('5')">5</button>
+        <button onclick="append('6')">6</button>
+        <button onclick="append('*')">×</button>
 
-        <!-- Buttons -->
-        <div class="buttons">
-            <!-- Row 1 -->
-            <button onclick="clearDisplay()">C</button>
-            <button onclick="deleteLast()">DEL</button>
-            <button onclick="append('(')">(</button>
-            <button onclick="append(')')">)</button>
+        <!-- Row 4 -->
+        <button onclick="append('1')">1</button>
+        <button onclick="append('2')">2</button>
+        <button onclick="append('3')">3</button>
+        <button onclick="append('-')">−</button>
 
-            <!-- Row 2 -->
-            <button onclick="append('7')">7</button>
-            <button onclick="append('8')">8</button>
-            <button onclick="append('9')">9</button>
-            <button onclick="append('/')">÷</button>
+        <!-- Row 5 -->
+        <button onclick="append('0')">0</button>
+        <button onclick="append('.')">.</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="append('+')">+</button>
 
-            <!-- Row 3 -->
-            <button onclick="append('4')">4</button>
-            <button onclick="append('5')">5</button>
-            <button onclick="append('6')">6</button>
-            <button onclick="append('*')">×</button>
-
-            <!-- Row 4 -->
-            <button onclick="append('1')">1</button>
-            <button onclick="append('2')">2</button>
-            <button onclick="append('3')">3</button>
-            <button onclick="append('-')">−</button>
-
-            <!-- Row 5 -->
-            <button onclick="append('0')">0</button>
-            <button onclick="append('.')">.</button>
-            <button onclick="calculate()">=</button>
-            <button onclick="append('+')">+</button>
-
-            <!-- Scientific functions -->
-            <button onclick="sqrt()">√</button>
-            <button onclick="power()">x²</button>
-            <button onclick="sin()">sin</button>
-            <button onclick="cos()">cos</button>
-            <button onclick="tan()">tan</button>
-            <button onclick="log()">log</button>
-            <button onclick="ln()">ln</button>
-            <button onclick="pi()">π</button>
-        </div>
-
+        <!-- Scientific Functions -->
+        <button onclick="sin()">sin</button>
+        <button onclick="cos()">cos</button>
+        <button onclick="tan()">tan</button>
+        <button onclick="asin()">asin</button>
+        <button onclick="acos()">acos</button>
+        <button onclick="atan()">atan</button>
+        <button onclick="log()">log</button>
+        <button onclick="ln()">ln</button>
+        <button onclick="exp()">e^x</button>
+        <button onclick="sqrt()">√</button>
+        <button onclick="power()">x²</button>
+        <button onclick="pi()">π</button>
+        <button onclick="factorial()">n!</button>
     </div>
+</div>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
