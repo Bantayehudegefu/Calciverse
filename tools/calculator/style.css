@@ -1,113 +1,132 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
-/* Body */
+/* Body background (default dark) */
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #0f172a;
-    color: white;
-    flex-direction: column;
-    transition: 0.3s;
+    background:#0f172a;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
 }
 
-/* Light Theme */
-body.light {
-    background: #f4f4f4;
-    color: #111;
-}
-
-/* Back Button */
-.back-container {
-    position: fixed;
-    top: 15px;
-    left: 15px;
-}
-.back-btn {
-    background: #ff6b6b;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-}
-.back-btn:hover { background: #ff4a4a; }
-
-/* Calculator Container */
+/* Calculator container */
 .calculator {
-    background: #1f2937;
-    padding: 30px 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    width: 100%;
-    max-width: 450px;
-    text-align: center;
-    transition: 0.3s;
+    background:#1f2c3a;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.5);
+    max-width:400px;
+    width:100%;
+    text-align:center;
 }
 
-/* Light Theme Calculator */
-body.light .calculator {
-    background: #ffffffdd;
-    color: #111;
+/* Heading */
+.calculator h1 {
+    margin-bottom:20px;
+    font-size:1.5em;
+    color:#00f2fe;
 }
 
 /* Display */
 #display {
-    width: 100%;
-    padding: 15px;
-    font-size: 1.5em;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    border: none;
-    text-align: right;
+    width:100%;
+    padding:15px;
+    font-size:1.2em;
+    border-radius:10px;
+    border:none;
+    margin-bottom:20px;
+    text-align:right;
+    background:#111;
+    color:white;
 }
 
-/* Menu */
-.menu {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-.menu select {
-    padding: 5px 10px;
-    font-size: 1em;
-}
-
-/* Buttons */
+/* Buttons grid */
 .buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-}
-.buttons button {
-    padding: 15px;
-    font-size: 1em;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    transition: 0.2s;
-    background: #4b5563;
-    color: white;
-}
-body.light .buttons button {
-    background: #d1d5db;
-    color: #111;
-}
-.buttons button:hover {
-    background: #667eea;
-    color: white;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
 }
 
-/* Calculator title */
-.calculator h1 {
-    margin-bottom: 20px;
-    font-size: 1.8em;
+/* Calculator buttons */
+.buttons button {
+    padding:15px;
+    font-size:1em;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.2s;
+    background:linear-gradient(145deg,#273b4d,#1f2c3a);
+    color:white;
+}
+
+/* Hover effect */
+.buttons button:hover {
+    background:linear-gradient(145deg,#00f2fe,#4facfe);
+}
+
+/* Back button */
+.back-container {
+    position:fixed;
+    top:15px;
+    left:15px;
+}
+
+.back-btn {
+    background:#ff6b6b;
+    color:white;
+    border:none;
+    padding:8px 16px;
+    font-size:16px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.back-btn:hover {
+    background:#ff4a4a;
+}
+
+/* Menu selectors */
+.menu {
+    margin-bottom:15px;
+    display:flex;
+    justify-content:space-between;
+}
+
+select {
+    padding:8px;
+    border-radius:5px;
+    border:none;
+    font-size:1em;
+}
+
+/* Light theme */
+body.light {
+    background:#f5f5f5;
+    color:#000;
+}
+
+body.light #display {
+    background:#fff;
+    color:#000;
+}
+
+body.light .calculator {
+    background:#e0e0e0;
+}
+
+body.light .buttons button {
+    background:linear-gradient(145deg,#fff,#d0d0d0);
+    color:#000;
+}
+
+body.light .buttons button:hover {
+    background:linear-gradient(145deg,#66a6ff,#89f7fe);
+    color:#fff;
 }

@@ -1,15 +1,22 @@
-// Calculator JS for fully functional scientific calculator
-
 const display = document.getElementById("display");
-const angleSelect = document.getElementById("angle");
-const themeSelect = document.getElementById("theme");
+const angleSelect = document.getElementById("angle-select");
+const themeSelect = document.getElementById("theme-select");
 
-// Append value to display
+// Append numbers or operators
 function append(value) {
     display.value += value;
 }
 
-// Clear display
+// Append functions like sin(, cos(, sqrt(, log( etc
+function appendFunction(func) {
+    if (func.endsWith('(')) {
+        display.value += func; // add function and open bracket
+    } else {
+        display.value += func; // for x², π, eˣ etc.
+    }
+}
+
+// Clear the display
 function clearDisplay() {
     display.value = "";
 }
@@ -19,113 +26,63 @@ function deleteLast() {
     display.value = display.value.slice(0, -1);
 }
 
-// Factorial
-function factorial() {
-    let n = parseFloat(display.value);
-    if (n < 0 || !Number.isInteger(n)) {
-        display.value = "Error";
-        return;
-    }
-    let res = 1;
-    for (let i = 1; i <= n; i++) res *= i;
-    display.value = res;
-}
-
-// Pi
-function pi() {
-    display.value += Math.PI.toFixed(8);
-}
-
-// Power x²
-function power() {
-    display.value += "**2";
-}
-
-// Square root
-function sqrt() {
-    display.value += "Math.sqrt(";
-}
-
-// Natural exponent e^x
-function exp() {
-    display.value += "Math.exp(";
-}
-
-// Natural log ln
-function ln() {
-    display.value += "Math.log(";
-}
-
-// Common log
-function log() {
-    display.value += "Math.log10(";
-}
-
-// Trig functions
-function sin() {
-    display.value += "sin(";
-}
-function cos() {
-    display.value += "cos(";
-}
-function tan() {
-    display.value += "tan(";
-}
-
-// Inverse trig
-function asin() {
-    display.value += "asin(";
-}
-function acos() {
-    display.value += "acos(";
-}
-function atan() {
-    display.value += "atan(";
-}
-
-// Convert input string to JS-evaluable formula
-function preprocess(input) {
-    const angle = angleSelect.value; // deg or rad
-
-    // Replace sin, cos, tan, etc.
-    input = input.replace(/sin\(/g, `Math.sin(`);
-    input = input.replace(/cos\(/g, `Math.cos(`);
-    input = input.replace(/tan\(/g, `Math.tan(`);
-    input = input.replace(/asin\(/g, `Math.asin(`);
-    input = input.replace(/acos\(/g, `Math.acos(`);
-    input = input.replace(/atan\(/g, `Math.atan(`);
-
-    // Handle degree conversion
-    if (angle === "deg") {
-        input = input.replace(/Math\.sin\(/g, "Math.sin(Math.PI/180*");
-        input = input.replace(/Math\.cos\(/g, "Math.cos(Math.PI/180*");
-        input = input.replace(/Math\.tan\(/g, "Math.tan(Math.PI/180*");
-        input = input.replace(/Math\.asin\(/g, "180/Math.PI*Math.asin(");
-        input = input.replace(/Math\.acos\(/g, "180/Math.PI*Math.acos(");
-        input = input.replace(/Math\.atan\(/g, "180/Math.PI*Math.atan(");
-    }
-
-    return input;
-}
-
 // Evaluate expression
 function calculate() {
     try {
-        let expr = preprocess(display.value);
-        let result = eval(expr);
-        display.value = parseFloat(result.toFixed(8));
-    } catch (e) {
+        let expr = display.value;
+
+        // Replace × ÷ symbols with * and /
+        expr = expr.replace(/×/g, "*").replace(/÷/g, "/");
+
+        // Replace π with Math.PI
+        expr = expr.replace(/π/g, "Math.PI");
+
+        // Handle degree/radian for trig functions
+        if (angleSelect.value === "deg") {
+            expr = expr.replace(/sin\(/g, "(Math.sin(Math.PI/180*");
+            expr = expr.replace(/cos\(/g, "(Math.cos(Math.PI/180*");
+            expr = expr.replace(/tan\(/g, "(Math.tan(Math.PI/180*");
+            expr = expr.replace(/asin\(/g, "(180/Math.PI*Math.asin(");
+            expr = expr.replace(/acos\(/g, "(180/Math.PI*Math.acos(");
+            expr = expr.replace(/atan\(/g, "(180/Math.PI*Math.atan(");
+        } else {
+            // radians mode
+            expr = expr.replace(/sin\(/g, "Math.sin(");
+            expr = expr.replace(/cos\(/g, "Math.cos(");
+            expr = expr.replace(/tan\(/g, "Math.tan(");
+            expr = expr.replace(/asin\(/g, "Math.asin(");
+            expr = expr.replace(/acos\(/g, "Math.acos(");
+            expr = expr.replace(/atan\(/g, "Math.atan(");
+        }
+
+        // Replace ln with Math.log
+        expr = expr.replace(/ln\(/g, "Math.log(");
+        // Replace log with Math.log10
+        expr = expr.replace(/log\(/g, "Math.log10(");
+        // Replace √ with Math.sqrt
+        expr = expr.replace(/sqrt\(/g, "Math.sqrt(");
+        // e^x
+        expr = expr.replace(/Math\.E\*\*/g, "Math.exp");
+
+        const result = eval(expr);
+        display.value = result;
+    } catch (error) {
         display.value = "Error";
     }
 }
 
-// Go back
+// Back button
 function goBack() {
     window.history.back();
 }
 
-// Change theme
-function changeTheme() {
-    const theme = themeSelect.value;
-    document.body.className = theme;
+// Theme change
+function changeTheme(theme) {
+    if (theme === "light") {
+        document.body.style.background = "#f5f5f5";
+        document.body.style.color = "#000";
+    } else {
+        document.body.style.background = "#0f172a";
+        document.body.style.color = "#fff";
+    }
 }

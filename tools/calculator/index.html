@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calciverse Scientific Calculator</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calciverse Scientific Calculator</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <div class="back-container">
@@ -17,70 +15,64 @@
 <div class="calculator">
     <h1>Scientific Calculator</h1>
 
-    <!-- Display -->
-    <input type="text" id="display" readonly>
-
-    <!-- Menu for settings -->
+    <!-- Theme and Angle Mode -->
     <div class="menu">
-        <label for="angle">Angle:</label>
-        <select id="angle">
-            <option value="deg">Degree</option>
-            <option value="rad">Radian</option>
-        </select>
-
-        <label for="theme">Theme:</label>
-        <select id="theme" onchange="changeTheme()">
+        <label for="theme-select">Theme:</label>
+        <select id="theme-select" onchange="changeTheme(this.value)">
             <option value="dark">Dark</option>
             <option value="light">Light</option>
         </select>
+
+        <label for="angle-select">Angle:</label>
+        <select id="angle-select">
+            <option value="deg">Degree</option>
+            <option value="rad">Radian</option>
+        </select>
     </div>
+
+    <!-- Display -->
+    <input type="text" id="display" readonly placeholder="0">
 
     <!-- Buttons -->
     <div class="buttons">
-        <!-- Row 1 -->
         <button onclick="clearDisplay()">C</button>
         <button onclick="deleteLast()">DEL</button>
         <button onclick="append('(')">(</button>
         <button onclick="append(')')">)</button>
 
-        <!-- Row 2 -->
         <button onclick="append('7')">7</button>
         <button onclick="append('8')">8</button>
         <button onclick="append('9')">9</button>
         <button onclick="append('/')">÷</button>
 
-        <!-- Row 3 -->
         <button onclick="append('4')">4</button>
         <button onclick="append('5')">5</button>
         <button onclick="append('6')">6</button>
         <button onclick="append('*')">×</button>
 
-        <!-- Row 4 -->
         <button onclick="append('1')">1</button>
         <button onclick="append('2')">2</button>
         <button onclick="append('3')">3</button>
         <button onclick="append('-')">−</button>
 
-        <!-- Row 5 -->
         <button onclick="append('0')">0</button>
         <button onclick="append('.')">.</button>
         <button onclick="calculate()">=</button>
         <button onclick="append('+')">+</button>
 
-        <!-- Scientific Functions -->
-        <button onclick="sin()">sin</button>
-        <button onclick="cos()">cos</button>
-        <button onclick="tan()">tan</button>
-        <button onclick="asin()">asin</button>
-        <button onclick="acos()">acos</button>
-        <button onclick="atan()">atan</button>
-        <button onclick="log()">log</button>
-        <button onclick="ln()">ln</button>
-        <button onclick="exp()">e^x</button>
-        <button onclick="sqrt()">√</button>
-        <button onclick="power()">x²</button>
-        <button onclick="pi()">π</button>
-        <button onclick="factorial()">n!</button>
+        <!-- Scientific functions -->
+        <button onclick="appendFunction('sqrt(')">√</button>
+        <button onclick="appendFunction('**2')">x²</button>
+        <button onclick="appendFunction('sin(')">sin</button>
+        <button onclick="appendFunction('cos(')">cos</button>
+        <button onclick="appendFunction('tan(')">tan</button>
+        <button onclick="appendFunction('asin(')">sin⁻¹</button>
+        <button onclick="appendFunction('acos(')">cos⁻¹</button>
+        <button onclick="appendFunction('atan(')">tan⁻¹</button>
+        <button onclick="appendFunction('log(')">log</button>
+        <button onclick="appendFunction('ln(')">ln</button>
+        <button onclick="appendFunction('Math.E**')">eˣ</button>
+        <button onclick="appendFunction('Math.PI')">π</button>
     </div>
 </div>
 
