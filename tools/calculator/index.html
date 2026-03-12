@@ -2,69 +2,72 @@
 <html lang="en">
 
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Calciverse Scientific Calculator</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calciverse Scientific Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<div class="back-container">
-    <button class="back-btn" onclick="goBack()">← Back</button>
-</div>
 
 <body>
 
-<div class="calculator">
+    <!-- Back button -->
+    <div class="back-container">
+        <button class="back-btn" onclick="goBack()">← Back</button>
+    </div>
 
-<h1>Scientific Calculator</h1>
+    <!-- Calculator container -->
+    <div class="calculator">
 
-<input type="text" id="display" readonly>
+        <h1>Scientific Calculator</h1>
 
-<div class="buttons">
+        <!-- Display -->
+        <input type="text" id="display" readonly>
 
-<button onclick="clearDisplay()">C</button>
-<button onclick="deleteLast()">DEL</button>
-<button onclick="append('(')">(</button>
-<button onclick="append(')')">)</button>
+        <!-- Buttons -->
+        <div class="buttons">
+            <!-- Row 1 -->
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="deleteLast()">DEL</button>
+            <button onclick="append('(')">(</button>
+            <button onclick="append(')')">)</button>
 
-<button onclick="append('7')">7</button>
-<button onclick="append('8')">8</button>
-<button onclick="append('9')">9</button>
-<button onclick="append('/')">÷</button>
+            <!-- Row 2 -->
+            <button onclick="append('7')">7</button>
+            <button onclick="append('8')">8</button>
+            <button onclick="append('9')">9</button>
+            <button onclick="append('/')">÷</button>
 
-<button onclick="append('4')">4</button>
-<button onclick="append('5')">5</button>
-<button onclick="append('6')">6</button>
-<button onclick="append('*')">×</button>
+            <!-- Row 3 -->
+            <button onclick="append('4')">4</button>
+            <button onclick="append('5')">5</button>
+            <button onclick="append('6')">6</button>
+            <button onclick="append('*')">×</button>
 
-<button onclick="append('1')">1</button>
-<button onclick="append('2')">2</button>
-<button onclick="append('3')">3</button>
-<button onclick="append('-')">−</button>
+            <!-- Row 4 -->
+            <button onclick="append('1')">1</button>
+            <button onclick="append('2')">2</button>
+            <button onclick="append('3')">3</button>
+            <button onclick="append('-')">−</button>
 
-<button onclick="append('0')">0</button>
-<button onclick="append('.')">.</button>
-<button onclick="calculate()">=</button>
-<button onclick="append('+')">+</button>
+            <!-- Row 5 -->
+            <button onclick="append('0')">0</button>
+            <button onclick="append('.')">.</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="append('+')">+</button>
 
-<button onclick="sqrt()">√</button>
-<button onclick="power()">x²</button>
-<button onclick="sin()">sin</button>
-<button onclick="cos()">cos</button>
+            <!-- Scientific functions -->
+            <button onclick="sqrt()">√</button>
+            <button onclick="power()">x²</button>
+            <button onclick="sin()">sin</button>
+            <button onclick="cos()">cos</button>
+            <button onclick="tan()">tan</button>
+            <button onclick="log()">log</button>
+            <button onclick="ln()">ln</button>
+            <button onclick="pi()">π</button>
+        </div>
 
-<button onclick="tan()">tan</button>
-<button onclick="log()">log</button>
-<button onclick="ln()">ln</button>
-<button onclick="pi()">π</button>
+    </div>
 
-</div>
-
-</div>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>

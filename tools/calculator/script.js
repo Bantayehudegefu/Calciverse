@@ -1,86 +1,79 @@
+// script.js
+
 const display = document.getElementById("display");
 
-function append(value){
-
-display.value += value;
-
+// Append number/operator to display
+function append(value) {
+    display.value += value;
 }
 
-function clearDisplay(){
-
-display.value = "";
-
+// Clear display
+function clearDisplay() {
+    display.value = "";
 }
 
-function deleteLast(){
-
-display.value = display.value.slice(0,-1);
-
+// Delete last character
+function deleteLast() {
+    display.value = display.value.slice(0, -1);
 }
 
-function calculate(){
-
-try{
-
-display.value = eval(display.value);
-
-}
-
-catch{
-
-display.value = "Error";
-
-}
-
-}
-
-function sqrt(){
-
-display.value = Math.sqrt(display.value);
-
-}
-
-function power(){
-
-display.value = Math.pow(display.value,2);
-
-}
-
-function sin(){
-
-display.value = Math.sin(display.value);
-
-}
-
-function cos(){
-
-display.value = Math.cos(display.value);
-
-}
-
-function tan(){
-
-display.value = Math.tan(display.value);
-
-}
-
-function log(){
-
-display.value = Math.log10(display.value);
-
-}
-
-function ln(){
-
-display.value = Math.log(display.value);
-
-}
-
-function pi(){
-
-display.value += Math.PI;
-
-}
+// Go back function for back button
 function goBack() {
-    window.location.href = "../../index.html";
+    window.history.back();
+}
+
+// Calculate expression
+function calculate() {
+    try {
+        // Replace ÷ and × symbols for eval
+        const expression = display.value.replace(/÷/g, "/").replace(/×/g, "*");
+        display.value = eval(expression);
+    } catch (error) {
+        display.value = "Error";
+    }
+}
+
+// Scientific functions (in degrees)
+function sin() {
+    if (display.value === "") return;
+    display.value = Math.sin((parseFloat(display.value) * Math.PI) / 180).toFixed(6);
+}
+
+function cos() {
+    if (display.value === "") return;
+    display.value = Math.cos((parseFloat(display.value) * Math.PI) / 180).toFixed(6);
+}
+
+function tan() {
+    if (display.value === "") return;
+    display.value = Math.tan((parseFloat(display.value) * Math.PI) / 180).toFixed(6);
+}
+
+// Square root
+function sqrt() {
+    if (display.value === "") return;
+    display.value = Math.sqrt(parseFloat(display.value)).toFixed(6);
+}
+
+// Square
+function power() {
+    if (display.value === "") return;
+    display.value = Math.pow(parseFloat(display.value), 2).toFixed(6);
+}
+
+// Natural log
+function ln() {
+    if (display.value === "") return;
+    display.value = Math.log(parseFloat(display.value)).toFixed(6);
+}
+
+// Base-10 log
+function log() {
+    if (display.value === "") return;
+    display.value = Math.log10(parseFloat(display.value)).toFixed(6);
+}
+
+// Pi
+function pi() {
+    display.value += Math.PI.toFixed(6);
 }

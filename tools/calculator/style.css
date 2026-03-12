@@ -1,104 +1,59 @@
-body{
-
-background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-
-font-family:Arial;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-height:100vh;
-
-color:white;
-
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #89f7fe, #66a6ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
-
-.calculator{
-
-background:#111;
-
-padding:30px;
-
-border-radius:15px;
-
-box-shadow:0 0 30px rgba(0,0,0,0.7);
-
-text-align:center;
-
+.calculator {
+    background: #111;
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    color: white;
 }
 
-
-h1{
-
-margin-bottom:20px;
-
+.calculator h1 {
+    margin-bottom: 20px;
 }
 
-
-#display{
-
-width:100%;
-
-height:60px;
-
-font-size:26px;
-
-text-align:right;
-
-padding:10px;
-
-margin-bottom:20px;
-
-border:none;
-
-border-radius:10px;
-
+#display {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.3em;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 15px;
+    text-align: right;
 }
 
-
-.buttons{
-
-display:grid;
-
-grid-template-columns:repeat(4,70px);
-
-gap:10px;
-
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
 }
 
-
-button{
-
-height:60px;
-
-font-size:18px;
-
-border:none;
-
-border-radius:10px;
-
-background:#2c3e50;
-
-color:white;
-
-cursor:pointer;
-
-transition:0.2s;
-
+button {
+    padding: 15px 0;
+    font-size: 1em;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(145deg, #1f2c3a, #273b4d);
+    color: white;
+    transition: 0.3s;
 }
 
-
-button:hover{
-
-background:#3498db;
-
-transform:scale(1.05);
-
+button:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(145deg, #4facfe, #00f2fe);
 }
+
 .back-container {
     position: fixed;
     top: 15px;
@@ -117,4 +72,14 @@ transform:scale(1.05);
 
 .back-btn:hover {
     background: #ff4a4a;
+}
+
+@media(max-width: 500px) {
+    .buttons {
+        grid-template-columns: repeat(3, 1fr); /* stack more neatly on small screens */
+    }
+    button {
+        font-size: 0.9em;
+        padding: 12px 0;
+    }
 }
