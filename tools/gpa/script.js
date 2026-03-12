@@ -71,3 +71,6 @@ function calculateGPA() {
     const gpa = totalPoints / totalCredits;
     result.textContent = `Your GPA: ${gpa.toFixed(2)}`;
 }
+function goBack() {
+    window.location.href = "../../index.html";
+}

@@ -36,3 +36,6 @@ document.getElementById("result").innerText = "Error fetching exchange rate";
 }
 
 }
+function goBack() {
+    window.location.href = "../../index.html";
+}

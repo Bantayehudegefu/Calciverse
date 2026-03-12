@@ -81,3 +81,6 @@ function pi(){
 display.value += Math.PI;
 
 }
+function goBack() {
+    window.location.href = "../../index.html";
+}

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 /* Reset */
 
 *{
@@ -10,18 +11,12 @@ font-family:'Poppins',sans-serif;
 
 /* Body background */
 
-body{
-
-height:100vh;
-background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-
-color:white;
-
-display:flex;
-flex-direction:column;
-
-align-items:center;
-
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -169,19 +164,20 @@ background:#00c6ff;
 
 }
 
+main{
+flex:1;
+display:flex;
+justify-content:center;
+}
 
 /* Tools grid */
 
 .tools-grid{
-
 display:grid;
-
 grid-template-columns:repeat(3,250px);
-
 gap:30px;
-
 margin-top:60px;
-
+justify-content:center;
 }
 
 
@@ -221,21 +217,23 @@ transform:translateY(-8px) scale(1.05);
 background:linear-gradient(145deg,#4facfe,#00f2fe);
 
 box-shadow:0 15px 35px rgba(0,0,0,0.6);
-
 }
-
 
 /* Footer */
 
 footer{
 
-position:absolute;
+text-align:center;
 
-bottom:20px;
+padding:15px;
+
+background:#111;
+
+color:white;
 
 font-size:14px;
 
-opacity:0.7;
+margin-top:auto;
 
 }
 

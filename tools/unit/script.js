@@ -70,3 +70,6 @@ else if(from === "fahrenheit" && to === "celsius") result = (value - 32) * 5/9;
 document.getElementById("result").innerText = result;
 
 }
+function goBack() {
+    window.location.href = "../../index.html";
+}

@@ -37,3 +37,6 @@ function calculateAge() {
     updateAge();
     setInterval(updateAge, 1000);
 }
+function goBack() {
+    window.location.href = "../../index.html";
+}

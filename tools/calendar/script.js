@@ -71,3 +71,6 @@ function convertCalendar(){
 
 // Button listener
 document.getElementById("convertBtn").addEventListener("click", convertCalendar);
+function goBack() {
+    window.location.href = "../../index.html";
+}

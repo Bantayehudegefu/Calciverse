@@ -26,3 +26,6 @@ for(let i=0;i<values.length;i++){
 const average = (sum/values.length).toFixed(2);
 document.getElementById("result").innerText = `The Average is: ${average}`;
 }
+function goBack() {
+    window.location.href = "../../index.html";
+}

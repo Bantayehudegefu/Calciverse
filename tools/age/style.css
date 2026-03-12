@@ -45,3 +45,22 @@ margin-top: 20px;
 font-size: 18px;
 color: #ffeb3b;
 }
+.back-container {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+}
+
+.back-btn {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    background: #ff4a4a;
+}
