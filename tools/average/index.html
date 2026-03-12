@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Average Calculator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="average-box">
+<h1>Average Calculator</h1>
+
+<label for="numbers">How many numbers?</label>
+<input type="number" id="numbers" value="3" min="1" max="50">
+<button onclick="generateInputs()">Generate Inputs</button>
+
+<form id="numbersForm"></form>
+
+<button onclick="calculateAverage()" id="calcBtn" style="display:none;">Calculate Average</button>
+
+<h2 id="result"></h2>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

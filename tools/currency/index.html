@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Calciverse Currency Converter</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="converter">
+
+<h1>Currency Converter</h1>
+
+<div class="input-group">
+
+<input type="number" id="amount" placeholder="Enter amount">
+
+</div>
+
+<div class="input-group">
+
+<select id="fromCurrency">
+<option value="USD">USD</option>
+<option value="EUR">EUR</option>
+<option value="GBP">GBP</option>
+<option value="ETB">ETB</option>
+<option value="JPY">JPY</option>
+<option value="CNY">CNY</option>
+</select>
+
+<span class="arrow">→</span>
+
+<select id="toCurrency">
+<option value="ETB">ETB</option>
+<option value="USD">USD</option>
+<option value="EUR">EUR</option>
+<option value="GBP">GBP</option>
+<option value="JPY">JPY</option>
+<option value="CNY">CNY</option>
+</select>
+
+</div>
+
+<button onclick="convert()">Convert</button>
+
+<h2 id="result">Result will appear here</h2>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendar Converter</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <h1>Calendar Converter</h1>
+    <div class="settings" onclick="openContact()">⚙</div>
+</header>
+
+<div id="contactBox" class="contact-box">
+    <h2>Developer Contact</h2>
+    <p><strong>Name:</strong> Bantayehu Degefu</p>
+    <p><strong>Email:</strong> bantayehudegefu800@gmail.com</p>
+    <button onclick="closeContact()">Close</button>
+</div>
+
+<main class="converter-container">
+    <div class="input-section">
+        <label>Day</label>
+        <input type="number" id="day" min="1" max="31">
+        <label>Month</label>
+        <input type="number" id="month" min="1" max="12">
+        <label>Year</label>
+        <input type="number" id="year" min="1">
+    </div>
+
+    <div class="select-section">
+        <label>From Calendar</label>
+        <select id="fromCal">
+            <option value="gregorian">Gregorian</option>
+            <option value="ethiopian">Ethiopian</option>
+            <option value="hijri">Hijri (Islamic)</option>
+            <option value="hebrew">Hebrew</option>
+            <option value="julian">Julian</option>
+            <option value="persian">Persian</option>
+            <option value="buddhist">Buddhist</option>
+        </select>
+
+        <label>To Calendar</label>
+        <select id="toCal">
+            <option value="gregorian">Gregorian</option>
+            <option value="ethiopian">Ethiopian</option>
+            <option value="hijri">Hijri (Islamic)</option>
+            <option value="hebrew">Hebrew</option>
+            <option value="julian">Julian</option>
+            <option value="persian">Persian</option>
+            <option value="buddhist">Buddhist</option>
+        </select>
+    </div>
+
+    <button id="convertBtn">Convert</button>
+
+    <div class="output-section">
+        <h3>Result:</h3>
+        <p id="result">--</p>
+    </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
