@@ -16,6 +16,8 @@ body {
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
     display: flex;
+    background:#0f172a;
+color:white;
     flex-direction: column;
 }
 
