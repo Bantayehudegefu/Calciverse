@@ -175,21 +175,20 @@ justify-content:center;
 /* Tools grid */
 
 .tools-grid{
-display:grid;
-grid-template-columns:repeat(3,250px);
-gap:30px;
-margin-top:60px;
-justify-content:center;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:30px;
+    margin-top:60px;
+    justify-content:center;
+    align-items:start; /* ensures all items align at the top */
 }
 
-
-/* Tool cards */
-
 .tool-card{
-    display: flex;              /* add */
-    align-items: center;        /* add */
-    justify-content: center;    /* add */
-    padding: 25px;              /* reduce padding a bit */
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:35px;
     font-size:18px;
     font-weight:500;
     border:none;
@@ -199,7 +198,7 @@ justify-content:center;
     color:white;
     transition:0.3s;
     box-shadow:0 10px 25px rgba(0,0,0,0.4);
-    text-align: center;         /* ensure text stays centered */
+    text-align:center; /* ensures text stays inside the box */
 }
 
 
