@@ -19,6 +19,15 @@
 <header>
 
 <h1 class="logo">Calciverse</h1>
+<div class="theme-selector">
+    <label for="theme">Theme:</label>
+    <select id="theme">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+        <option value="custom">Custom</option>
+    </select>
+    <input type="color" id="customColor" value="#4facfe" style="display:none;">
+</div>
 
 <div class="settings" onclick="openContact()">⚙</div>
 
@@ -42,50 +51,40 @@
 
 <main class="tools-grid">
 
-
-<button class="tool-card" onclick="location.href='tools/calculator/index.html'">
-
-Scientific Calculator
-
+<button class="tool-card animated-btn" onclick="location.href='tools/calculator/index.html'">
+    <span class="btn-icon">🧮</span>
+    <span class="btn-text">Scientific Calculator</span>
 </button>
 
-
-<button class="tool-card" onclick="location.href='tools/currency/index.html'">
-
-Currency Converter
-
+<button class="tool-card animated-btn" onclick="location.href='tools/currency/index.html'">
+    <span class="btn-icon">💱</span>
+    <span class="btn-text">Currency Converter</span>
 </button>
 
-
-<button class="tool-card" onclick="location.href='tools/unit/index.html'">
-
-Unit Converter
-
+<button class="tool-card animated-btn" onclick="location.href='tools/unit/index.html'">
+    <span class="btn-icon">📏</span>
+    <span class="btn-text">Unit Converter</span>
 </button>
 
-
-<button class="tool-card" onclick="location.href='tools/calendar/index.html'">
-
-Calendar Converter
-
+<button class="tool-card animated-btn" onclick="location.href='tools/calendar/index.html'">
+    <span class="btn-icon">📅</span>
+    <span class="btn-text">Calendar Converter</span>
 </button>
 
-
-<button class="tool-card" onclick="location.href='tools/gpa/index.html'">
-    GPA Calculator
+<button class="tool-card animated-btn" onclick="location.href='tools/gpa/index.html'">
+    <span class="btn-icon">🎓</span>
+    <span class="btn-text">GPA Calculator</span>
 </button>
 
-<button class="tool-card" onclick="location.href='tools/age/index.html'">
-    Age Counter
+<button class="tool-card animated-btn" onclick="location.href='tools/age/index.html'">
+    <span class="btn-icon">⏱️</span>
+    <span class="btn-text">Age Counter</span>
 </button>
 
-
-<button class="tool-card" onclick="location.href='tools/average/index.html'">
-
-Average Calculator
-
+<button class="tool-card animated-btn" onclick="location.href='tools/average/index.html'">
+    <span class="btn-icon">📊</span>
+    <span class="btn-text">Average Calculator</span>
 </button>
-
 
 </main>
 
