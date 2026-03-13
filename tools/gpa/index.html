@@ -3,29 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GPA Calculator</title>
+<title>Calciverse GPA Calculator</title>
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
-<div class="back-container">
-    <button class="back-btn" onclick="goBack()">← Back</button>
-</div>
+
 <body>
+
 <div class="gpa-container">
-    <h1>GPA Calculator</h1>
 
-    <label for="courseCount">Number of Courses:</label>
-    <input type="number" id="courseCount" min="1" max="20" placeholder="Enter total courses">
+<h1>GPA Calculator</h1>
 
-    <button id="generateCoursesBtn">Generate Courses</button>
+<h2>Step 1: Set Your Grade Scale</h2>
 
-    <form id="coursesForm"></form>
+<div class="grade-scale">
 
-    <button id="calculateBtn" onclick="calculateGPA()">Calculate GPA</button>
+<div class="grade-row">A+ <input type="number" id="Aplus"></div>
+<div class="grade-row">A <input type="number" id="A"></div>
+<div class="grade-row">A- <input type="number" id="Aminus"></div>
 
-    <h2 id="result">Your GPA: </h2>
+<div class="grade-row">B+ <input type="number" id="Bplus"></div>
+<div class="grade-row">B <input type="number" id="B"></div>
+<div class="grade-row">B- <input type="number" id="Bminus"></div>
+
+<div class="grade-row">C+ <input type="number" id="Cplus"></div>
+<div class="grade-row">C <input type="number" id="C"></div>
+<div class="grade-row">C- <input type="number" id="Cminus"></div>
+
+<div class="grade-row">D <input type="number" id="D"></div>
+<div class="grade-row">F <input type="number" id="F"></div>
+
+</div>
+
+<h2>Step 2: Add Courses</h2>
+
+<div id="courses"></div>
+
+<button onclick="addCourse()" class="add-btn">Add Course</button>
+
+<button onclick="calculateGPA()" class="calc-btn">Calculate GPA</button>
+
+<div class="result">
+<h2>Your GPA: <span id="gpa">0.00</span></h2>
+</div>
+
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>

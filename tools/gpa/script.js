@@ -1,76 +1,96 @@
-const generateBtn = document.getElementById("generateCoursesBtn");
-const coursesForm = document.getElementById("coursesForm");
-const courseCountInput = document.getElementById("courseCount");
-const result = document.getElementById("result");
+function getGradeScale(){
 
-generateBtn.addEventListener("click", () => {
-    coursesForm.innerHTML = ""; // Clear previous
-    const count = parseInt(courseCountInput.value);
+return {
+"A+": parseFloat(document.getElementById("Aplus").value),
+"A": parseFloat(document.getElementById("A").value),
+"A-": parseFloat(document.getElementById("Aminus").value),
 
-    if (isNaN(count) || count < 1) {
-        alert("Enter a valid number of courses!");
-        return;
-    }
+"B+": parseFloat(document.getElementById("Bplus").value),
+"B": parseFloat(document.getElementById("B").value),
+"B-": parseFloat(document.getElementById("Bminus").value),
 
-    for (let i = 1; i <= count; i++) {
-        const courseDiv = document.createElement("div");
-        courseDiv.className = "course";
+"C+": parseFloat(document.getElementById("Cplus").value),
+"C": parseFloat(document.getElementById("C").value),
+"C-": parseFloat(document.getElementById("Cminus").value),
 
-        const creditLabel = document.createElement("label");
-        creditLabel.textContent = `Course ${i} Credit Hours:`;
-        const creditInput = document.createElement("input");
-        creditInput.type = "number";
-        creditInput.min = "0";
-        creditInput.placeholder = "Enter credit hours";
-        creditInput.className = "credit";
+"D": parseFloat(document.getElementById("D").value),
+"F": parseFloat(document.getElementById("F").value)
 
-        const gradeLabel = document.createElement("label");
-        gradeLabel.textContent = `Course ${i} Grade (0-4):`;
-        const gradeInput = document.createElement("input");
-        gradeInput.type = "number";
-        gradeInput.min = "0";
-        gradeInput.max = "4";
-        gradeInput.step = "0.01";
-        gradeInput.placeholder = "Enter grade points";
-        gradeInput.className = "grade";
+};
 
-        courseDiv.appendChild(creditLabel);
-        courseDiv.appendChild(creditInput);
-        courseDiv.appendChild(gradeLabel);
-        courseDiv.appendChild(gradeInput);
-
-        coursesForm.appendChild(courseDiv);
-    }
-});
-
-function calculateGPA() {
-    const creditInputs = document.querySelectorAll(".credit");
-    const gradeInputs = document.querySelectorAll(".grade");
-
-    let totalCredits = 0;
-    let totalPoints = 0;
-
-    for (let i = 0; i < creditInputs.length; i++) {
-        const credit = parseFloat(creditInputs[i].value);
-        const grade = parseFloat(gradeInputs[i].value);
-
-        if (isNaN(credit) || isNaN(grade)) {
-            alert("Please fill in all credit hours and grades!");
-            return;
-        }
-
-        totalCredits += credit;
-        totalPoints += credit * grade;
-    }
-
-    if (totalCredits === 0) {
-        result.textContent = "Your GPA: 0.00";
-        return;
-    }
-
-    const gpa = totalPoints / totalCredits;
-    result.textContent = `Your GPA: ${gpa.toFixed(2)}`;
 }
-function goBack() {
-    window.location.href = "../../index.html";
+
+function addCourse(){
+
+const container = document.getElementById("courses");
+
+const course = document.createElement("div");
+
+course.className = "course";
+
+course.innerHTML = `
+
+<input type="text" placeholder="Course Name">
+
+<input type="number" class="credit" placeholder="Credit Hours">
+
+<select class="grade">
+<option>A+</option>
+<option>A</option>
+<option>A-</option>
+<option>B+</option>
+<option>B</option>
+<option>B-</option>
+<option>C+</option>
+<option>C</option>
+<option>C-</option>
+<option>D</option>
+<option>F</option>
+</select>
+
+<button onclick="removeCourse(this)">X</button>
+
+`;
+
+container.appendChild(course);
+
 }
+
+function removeCourse(btn){
+
+btn.parentElement.remove();
+
+}
+
+function calculateGPA(){
+
+const gradeScale = getGradeScale();
+
+let totalCredits = 0;
+let totalPoints = 0;
+
+const credits = document.querySelectorAll(".credit");
+const grades = document.querySelectorAll(".grade");
+
+for(let i=0;i<credits.length;i++){
+
+const credit = parseFloat(credits[i].value);
+const grade = grades[i].value;
+
+if(!credit) continue;
+
+const point = gradeScale[grade];
+
+totalCredits += credit;
+totalPoints += point * credit;
+
+}
+
+const gpa = totalPoints / totalCredits;
+
+document.getElementById("gpa").textContent =
+gpa ? gpa.toFixed(2) : "0.00";
+
+}
+
+addCourse();

@@ -1,75 +1,204 @@
-body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #89f7fe, #66a6ff);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+/* Reset */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
-.gpa-container {
-    background: #ffffffdd;
-    padding: 30px 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    width: 90%;
-    max-width: 500px;
-    text-align: center;
+/* Page background */
+
+body{
+background:linear-gradient(135deg,#0f172a,#1e293b);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+padding:20px;
 }
 
-h1 {
-    margin-bottom: 20px;
-    color: #333;
+/* Main container */
+
+.gpa-container{
+
+background:#111827;
+padding:35px;
+border-radius:20px;
+box-shadow:0 15px 40px rgba(0,0,0,0.6);
+width:600px;
+max-width:100%;
+text-align:center;
+
 }
 
-input, select, button {
-    width: 90%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 1em;
+/* Title */
+
+h1{
+
+font-size:32px;
+margin-bottom:25px;
+background:linear-gradient(90deg,#00f2fe,#4facfe);
+-webkit-background-clip:text;
+color:transparent;
+
 }
 
-button {
-    background: #667eea;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
+/* Section titles */
+
+h2{
+
+margin:20px 0 10px 0;
+font-size:20px;
+
 }
 
-button:hover {
-    background: #5a67d8;
+/* Grade scale grid */
+
+.grade-scale{
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:10px;
+margin-bottom:20px;
+
 }
 
-.course {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 15px;
+/* Grade row */
+
+.grade-row{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#1f2937;
+padding:10px;
+border-radius:8px;
+
 }
 
-label {
-    font-weight: 500;
-    margin-bottom: 5px;
-}
-.back-container {
-    position: fixed;
-    top: 15px;
-    left: 15px;
+/* Inputs */
+
+input,select{
+
+padding:8px;
+border-radius:6px;
+border:none;
+outline:none;
+font-size:14px;
+
 }
 
-.back-btn {
-    background: #ff6b6b;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
+/* Course rows */
+
+.course{
+
+display:grid;
+grid-template-columns:2fr 1fr 1fr auto;
+gap:10px;
+margin-top:10px;
+
 }
 
-.back-btn:hover {
-    background: #ff4a4a;
+/* Buttons */
+
+button{
+
+border:none;
+cursor:pointer;
+border-radius:8px;
+transition:0.3s;
+
+}
+
+/* Add course button */
+
+.add-btn{
+
+margin-top:15px;
+padding:10px 20px;
+background:#22c55e;
+color:white;
+font-size:15px;
+
+}
+
+.add-btn:hover{
+
+background:#16a34a;
+
+}
+
+/* Calculate button */
+
+.calc-btn{
+
+margin-top:15px;
+padding:12px 25px;
+background:#3b82f6;
+color:white;
+font-size:16px;
+
+}
+
+.calc-btn:hover{
+
+background:#2563eb;
+
+}
+
+/* Remove button */
+
+.course button{
+
+background:#ef4444;
+color:white;
+padding:5px 10px;
+
+}
+
+.course button:hover{
+
+background:#dc2626;
+
+}
+
+/* Result box */
+
+.result{
+
+margin-top:25px;
+background:#1f2937;
+padding:20px;
+border-radius:12px;
+
+}
+
+/* GPA value */
+
+.result span{
+
+font-size:28px;
+color:#22c55e;
+font-weight:bold;
+
+}
+
+/* Responsive */
+
+@media(max-width:600px){
+
+.course{
+
+grid-template-columns:1fr;
+
+}
+
+.grade-scale{
+
+grid-template-columns:1fr 1fr;
+
+}
+
 }
