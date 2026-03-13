@@ -202,3 +202,26 @@ grid-template-columns:1fr 1fr;
 }
 
 }
+/* Back button */
+
+.back-container{
+position:fixed;
+top:20px;
+left:20px;
+}
+
+.back-btn{
+background:#ff6b6b;
+color:white;
+border:none;
+padding:8px 16px;
+font-size:16px;
+border-radius:8px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.back-btn:hover{
+background:#ff4a4a;
+transform:scale(1.05);
+}

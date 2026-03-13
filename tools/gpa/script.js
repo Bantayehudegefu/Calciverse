@@ -94,3 +94,6 @@ gpa ? gpa.toFixed(2) : "0.00";
 }
 
 addCourse();
+function goBack(){
+    window.location.href = "../../index.html";
+}
