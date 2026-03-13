@@ -266,3 +266,27 @@ font-size:30px;
 }
 
 }
+.site-footer{
+
+margin-top:40px;
+padding:20px;
+text-align:center;
+background:#111827;
+color:white;
+
+}
+
+.site-footer a{
+
+color:#4facfe;
+margin:0 10px;
+text-decoration:none;
+font-weight:500;
+
+}
+
+.site-footer a:hover{
+
+text-decoration:underline;
+
+}
