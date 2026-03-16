@@ -31,7 +31,7 @@ body { height:100vh; display:flex; justify-content:center; align-items:center; b
 
 /* Welcome panel fixed inside orb */
 .login-panel {
-  position:absolute; width:280px; text-align:center; z-index:2;
+  position:absolute; width:480px; text-align:center; z-index:2;
   top:50%; left:50%; transform:translate(-50%,-50%); /* Fixed center */
 }
 .login-panel h2 { margin-bottom:15px; color:#00eaff; letter-spacing:2px; }
@@ -72,6 +72,6 @@ button:hover { transform:scale(1.05); box-shadow:0 0 25px #00eaff, 0 0 50px #ff3
   transform-origin:center center;
 }
 @keyframes moonOrbit { 
-  from{ transform: translate(-50%,-50%) rotate(0deg) translateX(300px);} 
-  to{ transform: translate(-50%,-50%) rotate(360deg) translateX(300px);} 
+  from{ transform: translate(-50%,-50%) rotate(0deg) translateX(450px);} 
+  to{ transform: translate(-50%,-50%) rotate(360deg) translateX(450px);} 
 }
