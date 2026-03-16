@@ -20,7 +20,7 @@ body { height:100vh; display:flex; justify-content:center; align-items:center; b
   100%{ transform: translate(-50%,-50%) rotate(360deg);}
 }
 
-/* Orb */
+/* Orb - STATIC circle */
 .orb {
   position:relative; width:600px; height:600px; border-radius:50%;
   display:flex; justify-content:center; align-items:center;
@@ -28,9 +28,8 @@ body { height:100vh; display:flex; justify-content:center; align-items:center; b
   box-shadow: inset 0 0 50px rgba(255,255,255,0.1), 0 0 100px rgba(0,0,0,0.8);
   z-index:1;
 }
-@keyframes orbRotate { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
 
-/* Welcome panel fixed inside orb - STATIC */
+/* Welcome panel fixed inside orb */
 .login-panel {
   position:absolute; width:280px; text-align:center; z-index:2;
   top:50%; left:50%; transform:translate(-50%,-50%); /* Fixed center */
@@ -43,36 +42,36 @@ button {
 }
 button:hover { transform:scale(1.05); box-shadow:0 0 25px #00eaff, 0 0 50px #ff3cac; }
 
-/* Rotating spheres inside orb */
+/* Rotating spheres orbit outside orb */
 .rotating-spheres {
-  position:absolute; width:360px; height:360px; border-radius:50%; transform-style:preserve-3d;
+  position:absolute; width:580px; height:580px; border-radius:50%; transform-style:preserve-3d;
   animation: spinSpheres 8s linear infinite;
 }
 .rotating-spheres span {
   position:absolute; width:15px; height:15px; border-radius:50%;
   background: linear-gradient(45deg,#ff3cac,#00eaff,#ffdd00);
-  transform-origin:180px 0 0;
+  transform-origin: 290px 0 0; /* half of width for correct orbit */
 }
-.rotating-spheres span:nth-child(1){ transform: rotateY(0deg) translateX(180px);}
-.rotating-spheres span:nth-child(2){ transform: rotateY(45deg) translateX(180px);}
-.rotating-spheres span:nth-child(3){ transform: rotateY(90deg) translateX(180px);}
-.rotating-spheres span:nth-child(4){ transform: rotateY(135deg) translateX(180px);}
-.rotating-spheres span:nth-child(5){ transform: rotateY(180deg) translateX(180px);}
-.rotating-spheres span:nth-child(6){ transform: rotateY(225deg) translateX(180px);}
-.rotating-spheres span:nth-child(7){ transform: rotateY(270deg) translateX(180px);}
-.rotating-spheres span:nth-child(8){ transform: rotateY(315deg) translateX(180px);}
+.rotating-spheres span:nth-child(1){ transform: rotateY(0deg) translateX(290px);}
+.rotating-spheres span:nth-child(2){ transform: rotateY(45deg) translateX(290px);}
+.rotating-spheres span:nth-child(3){ transform: rotateY(90deg) translateX(290px);}
+.rotating-spheres span:nth-child(4){ transform: rotateY(135deg) translateX(290px);}
+.rotating-spheres span:nth-child(5){ transform: rotateY(180deg) translateX(290px);}
+.rotating-spheres span:nth-child(6){ transform: rotateY(225deg) translateX(290px);}
+.rotating-spheres span:nth-child(7){ transform: rotateY(270deg) translateX(290px);}
+.rotating-spheres span:nth-child(8){ transform: rotateY(315deg) translateX(290px);}
 @keyframes spinSpheres { from{transform: rotateX(0deg) rotateY(0deg);} to{transform: rotateX(360deg) rotateY(360deg);} }
 
 /* Moon orbit - intense glow */
 .moon {
   position:absolute; width:60px; height:60px; border-radius:50%;
   background: radial-gradient(circle,#fff 0%,#ccc 70%,#0000 100%);
-  box-shadow:0 0 50px #fff, 0 0 100px #fff, 0 0 150px #00eaff;
+  box-shadow: 0 0 60px #fff, 0 0 120px #fff, 0 0 180px #00eaff;
   animation: moonOrbit 20s linear infinite;
-  top:50%; left:50%; transform: translate(-50%,-50%) rotate(0deg) translateX(250px);
+  top:50%; left:50%; transform: translate(-50%,-50%) rotate(0deg) translateX(300px);
   transform-origin:center center;
 }
 @keyframes moonOrbit { 
-  from{ transform: translate(-50%,-50%) rotate(0deg) translateX(250px);} 
-  to{ transform: translate(-50%,-50%) rotate(360deg) translateX(250px);} 
+  from{ transform: translate(-50%,-50%) rotate(0deg) translateX(300px);} 
+  to{ transform: translate(-50%,-50%) rotate(360deg) translateX(300px);} 
 }

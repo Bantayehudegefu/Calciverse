@@ -30,8 +30,8 @@
         </select>
     </div>
 
-    <!-- Display -->
-    <input type="text" id="display" readonly placeholder="0">
+    <!-- Editable display -->
+    <input type="text" id="display" placeholder="0">
 
     <!-- Buttons -->
     <div class="buttons">
@@ -61,17 +61,17 @@
         <button onclick="append('+')">+</button>
 
         <!-- Scientific functions -->
-        <button onclick="appendFunction('sqrt(')">√</button>
+        <button onclick="appendFunction('sin')">sin</button>
+        <button onclick="appendFunction('cos')">cos</button>
+        <button onclick="appendFunction('tan')">tan</button>
+        <button onclick="appendFunction('asin')">sin⁻¹</button>
+        <button onclick="appendFunction('acos')">cos⁻¹</button>
+        <button onclick="appendFunction('atan')">tan⁻¹</button>
+        <button onclick="appendFunction('Math.sqrt')">√</button>
         <button onclick="appendFunction('**2')">x²</button>
-        <button onclick="appendFunction('sin(')">sin</button>
-        <button onclick="appendFunction('cos(')">cos</button>
-        <button onclick="appendFunction('tan(')">tan</button>
-        <button onclick="appendFunction('asin(')">sin⁻¹</button>
-        <button onclick="appendFunction('acos(')">cos⁻¹</button>
-        <button onclick="appendFunction('atan(')">tan⁻¹</button>
-        <button onclick="appendFunction('log(')">log</button>
-        <button onclick="appendFunction('ln(')">ln</button>
-        <button onclick="appendFunction('Math.E**')">eˣ</button>
+        <button onclick="appendFunction('Math.log10')">log</button>
+        <button onclick="appendFunction('Math.log')">ln</button>
+        <button onclick="appendFunction('Math.exp')">eˣ</button>
         <button onclick="appendFunction('Math.PI')">π</button>
     </div>
 </div>
