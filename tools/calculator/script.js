@@ -16,26 +16,25 @@ function appendFunction(func) {
     const start = display.selectionStart;
     const end = display.selectionEnd;
 
+    // Functions that need parentheses
     if(func.match(/sin|cos|tan|asin|acos|atan|Math.sqrt|Math.log|Math.log10|Math.exp/)) {
         const full = func + "()";
         display.value = display.value.slice(0, start) + full + display.value.slice(end);
-        // Cursor **inside the parentheses**, right after '('
-        display.setSelectionRange(start + func.length + 1, start + func.length + 1);
+        display.setSelectionRange(start + func.length + 1, start + func.length + 1); // cursor inside ()
     } else {
         display.value = display.value.slice(0, start) + func + display.value.slice(end);
         display.setSelectionRange(start + func.length, start + func.length);
     }
-
     display.focus();
 }
 
-// Clear
+// Clear display
 function clearDisplay(){
     display.value = "";
     display.focus();
 }
 
-// Delete last char at cursor
+// Delete last character at cursor
 function deleteLast(){
     const start = display.selectionStart;
     const end = display.selectionEnd;
@@ -52,14 +51,25 @@ function calculate(){
         expr = expr.replace(/×/g,"*").replace(/÷/g,"/");
         expr = expr.replace(/π/g,"Math.PI");
 
-        // Angle mode handling
         if(angleSelect.value==="deg"){
+            // NORMAL trig functions (input in degrees)
             expr = expr.replace(/sin\(/g,"Math.sin(Math.PI/180*");
             expr = expr.replace(/cos\(/g,"Math.cos(Math.PI/180*");
             expr = expr.replace(/tan\(/g,"Math.tan(Math.PI/180*");
-            expr = expr.replace(/asin\(/g,"180/Math.PI*Math.asin(");
-            expr = expr.replace(/acos\(/g,"180/Math.PI*Math.acos(");
-            expr = expr.replace(/atan\(/g,"180/Math.PI*Math.atan(");
+
+            // INVERSE trig functions (output in degrees)
+            expr = expr.replace(/asin\(/g,"(180/Math.PI)*Math.asin(");
+            expr = expr.replace(/acos\(/g,"(180/Math.PI)*Math.acos(");
+            expr = expr.replace(/atan\(/g,"(180/Math.PI)*Math.atan(");
+        } else {
+            // RADIAN mode: no conversion needed
+            expr = expr.replace(/sin\(/g,"Math.sin(");
+            expr = expr.replace(/cos\(/g,"Math.cos(");
+            expr = expr.replace(/tan\(/g,"Math.tan(");
+
+            expr = expr.replace(/asin\(/g,"Math.asin(");
+            expr = expr.replace(/acos\(/g,"Math.acos(");
+            expr = expr.replace(/atan\(/g,"Math.atan(");
         }
 
         const result = eval(expr);
